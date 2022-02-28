@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Filling Page</title>
+    <style>
+        div{
+        color: white;
+        font-size: 20px;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 10px 10px 10px;
+        }
+        .container1{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 10px 10px 10px;
+         }
+         .container2{
+            text-align: center;
+         }
+         #submit{
+            width: 200px;
+            height: 50px;
+            border: 2px solid yellow;
+            background-color: yellow;
+            border-radius: 25px;
+            margin: 25px;
+            font-size: 15px;
+         }
+         .container3{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 10px 10px 10px;
+            background-color: #ADD8E6;
+            color: black;
+            font-size: 17px;
+            margin: 10px 10px 10px 10px;
+         }
+
+    </style>
+</head>
+<body background= "https://images.wallpaperscraft.com/image/single/light_sky_stars_background_85555_1280x720.jpg">
+
+    <form class="Form" method="POST" action="afterward/">
+        {% csrf_token %}
+        <div class="container3">
+            Your Email-id &nbsp; <b>{{request.user.email}}</b> &nbsp; will be recorded when you submit this form
+        </div>
+
+        {% for car in creates %}
+            <div class="container">
+                {{ forloop.counter }}. &nbsp; {{ car.question }}
+            </div>
+            <div class="container1">
+                <input name="Car{{ forloop.counter }}" id="range{{ forloop.counter }}" value="" style=" flex: 1; width: 400px; height: 30px;">
+                <input type="hidden" name="numbergenerate" value="{{ forloop.counter }}">
+            </div>
+        {% endfor %}
+
+        <div class="container2">
+            <input type="submit" name="submit" id="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

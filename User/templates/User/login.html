@@ -1,0 +1,88 @@
+{% extends 'User/base.html' %}
+{% load socialaccount %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'User/css/login.css' %}?{% now "U" %}">
+{% endblock css %}
+{% block content %}
+<div class="container col-6 justify-content-center container1">
+        <div class="container col-12 inner">
+          <div class="container">
+                <div class="im">
+                <!-- <img src="../../static/User/images/Prabandh.png" height="100px" width="100px"></img> -->
+                </div>
+                <h2 style="color: white;">Login </h2>
+                <br>
+                
+                <div id="div_id_username" class="form-group">
+                        <label for="id_username" class="requiredField down">
+                                Hey seems, you have come to fill a feedback form ,
+                        
+                        </label> 
+                        <!-- <div class=""> 
+                                <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" class="textinput textInput form-control" required id="id_username"> 
+                        </div>  -->
+                </div> 
+                <br>
+                <div id="div_id_password" class="form-group"> 
+                        <label for="id_password" class="requiredField down">
+                                Your Feedback is very important for our users and we expect you fill it with full honesty</label>
+                      
+                      
+                </div>
+                <br>
+                <div id="div_id_username" class="form-group">
+                  <label class="down">
+                    But please login with your google id please
+                  </label>
+                </div>
+                <br>
+                <div id="div_id_username" class="form-group">
+                  <label class="down">
+                    <a class="btn btn-primary" href="{% provider_login_url 'google' %}">Login With Google</a>
+                  </label>
+                </div>
+              
+                  <!-- <div class=""> 
+                          <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" class="textinput textInput form-control" required id="id_username"> 
+                  </div>  -->
+          </div>
+                <!-- <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-2">
+                               <a class="btn btn-primary" href="{% provider_login_url 'google' %}">Login With Google</a> -->
+                                <!-- <button class="btn btn-danger" type="submit">LogIn</button> -->
+                        <!-- </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-2">
+                        </div>
+                        <div class="col-2"></div>
+                </div> -->
+          </div>
+        </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html>
+<body>
+<h1>My Google OAuth Project </h1>
+{% if user.is_authenticated %}
+  <p>Welcome, You are logged in as {{ user.username }}</p>
+{% else %}
+  <a href="{% provider_login_url 'google' %}">Login With Google</a>
+{% endif %}
+</body>
+</html> -->

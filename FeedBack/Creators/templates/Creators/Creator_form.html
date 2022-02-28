@@ -1,0 +1,18 @@
+{% extends 'Creators/basic.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+<center>
+    <a href="/create_form" class="btn " style="margin:100px 10px 10px 10px;background-color:white ;color:#00022E; font-weight:500;">Generate Previous Report</a>
+    <div style="background-color:white;width:600px;margin-top:10px;border-radius: 20px;">
+        <h1 style>Event</h1>
+
+   <form method="POST" enctype="multipart/form-data" id="perform" >
+        {% csrf_token %}
+        {{ form|crispy }}
+       <br/> <center><button class="btn " type="submit" style="margin:10px 10px 10px 10px;background-color:#00022E ;color:white; font-weight:500;">Submit</button></center>
+</form>
+    </div>
+
+    </center>
+{% endblock %}
